@@ -371,9 +371,14 @@ if (OperatingSystem == "Windows") { # Windows
 ---
 
 ::: {.fragment}
-::: {.callout-tip title="."}
-When evaluating the returned outputs, primarily consider the total, used and free outputs. 
-:::
+```{r}
+# install.packages("ps") # CRAN
+library(ps)
+Memory <- ps::ps_system_memory()
+message("Total GB ", round(Memory$total / 1024^3, 2))
+message("Free GB ", round(Memory$free / 1024^3, 2))
+```
+
 :::
 
 ---
